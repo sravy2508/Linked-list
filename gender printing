@@ -1,0 +1,35 @@
+class node:
+    def __init__(self,name,rollno,gender):
+        self.name=name
+        self.rollno=rollno
+        self.gender=gender
+        self.next=None
+class linkedlist:
+    def __init__(self):
+        self.head=None
+    def createll(self,n):
+        i=0
+        while i<n:
+            name=input("Enter name:")
+            rollno=input("Enter rollno:")
+            gender=input("Enter gender:")
+            newnode=node(name,rollno,gender)
+            if i==0:
+                head=newnode
+            else:
+                t=head
+                while t.next:
+                    t=t.next
+                t.next=newnode
+            i=i+1
+    def show(self,gender):
+        print("\n hello",gender)
+        t=self.head
+        while t:
+            if t.gender==gender:
+                print(t.rollno,t.name,end="->")
+            t=t.next
+obj=linkedlist
+obj.createll(3)
+obj.show("M")
+obj.show("F")
